@@ -7,10 +7,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'flutter demo',
-      home: Text(
-        'hell flutssster fuck em all kill em all',
-        style: TextStyle(fontSize: 32.0),
-      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('hell fuckerms'),
+        ),
+        body: Text(
+          'Hell fuck app fsskutter',
+          style: TextStyle(fontSize: 32.0),
+        )
+      )
     );
   }
 }
