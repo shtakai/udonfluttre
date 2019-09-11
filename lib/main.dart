@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         title: new Text('Take a Fucking Stand'),
       ),
-      body: Center(
+      body: Container(
         child: Text(
           "Sick em all",
           style: new TextStyle(
@@ -43,6 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
               fontWeight: FontWeight.w700,
               fontFamily: "Roboto"),
         ),
+        padding: const EdgeInsets.all(10.0),
+        alignment: Alignment.bottomCenter,
       ),
     );
   }
