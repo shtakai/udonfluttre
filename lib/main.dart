@@ -34,10 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         title: new Text('Take a Fucking Stand'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
             "Fuck",
