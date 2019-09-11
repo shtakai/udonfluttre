@@ -35,12 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:
         Text(
-        "Suck em all",
-        style: new TextStyle(fontSize:32.0,
-            color: const Color(0xFF000000),
-            fontWeight: FontWeight.w700,
-            fontFamily: "Roboto"),
-      ),
+          "Suck em all",
+          style: new TextStyle(fontSize: 32.0,
+              color: const Color(0xFF000000),
+              fontWeight: FontWeight.w700,
+              fontFamily: "Roboto"),
+        ),
     );
   }
 
