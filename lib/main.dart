@@ -4,7 +4,6 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
     final title = 'Fxxkter title';
-    final message = 'Fxxkter message';
 
     @override
     Widget build(BuildContext context) {
@@ -12,32 +11,59 @@ class MyApp extends StatelessWidget {
       title: 'fuck kill destroy',
       home: new MyHomePage(
         title: this.title,
-        message: this.message,
       )
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  final String title;
-  final String message;
+  MyHomePage({this.title}): super();
 
-  MyHomePage({this.title, this.message}): super();
+  final String title;
 
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _message;
+  bool _isFlipped = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _message = 'HELLo';
+    _isFlipped = false;
+  }
+
+  void _setMessage() {
+    setState(() {
+      if (_isFlipped) {
+        _message = '12345';
+
+      } else {
+        _message = 'ABCDE';
+      }
+      _isFlipped = !_isFlipped;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
+
       body: Text(
-        widget.message,
+        _message,
         style: TextStyle(fontSize: 38.0),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: _setMessage,
+          tooltip: 'set message',
+        child: Icon(Icons.star),
       ),
     );
   }
