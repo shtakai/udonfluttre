@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
               fontWeight: FontWeight.w700,
               fontFamily: "Roboto"),
         ),
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.0),
         alignment: Alignment.bottomCenter,
       ),
     );
