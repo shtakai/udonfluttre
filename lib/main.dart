@@ -25,29 +25,37 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
+class Data {
+  int _price;
+  String _name;
+
+  Data(this._name, this._price): super();
+
+  @override
+  String toString() {
+    return _name + ':' + _price.toString() + '円';
+  }
+}
+
 class _MyHomePageState extends State<MyHomePage> {
-  String _message;
-  IconData _icon = Icons.star;
-  bool _isFlipped = false;
+  static final _data = [
+    Data('Apple', 200),
+    Data('Orange', 150),
+    Data('Peach', 44)
+  ];
+  Data _item;
 
   @override
   void initState() {
     super.initState();
-    _message = 'HELLo';
+    _item = _data[0];
   }
 
-  void _setMessage() {
+  void _setData() {
     setState(() {
-      if (_isFlipped) {
-        _message = '12345';
-        _icon = Icons.access_alarm;
-      } else {
-        _message = 'ABCDE';
-        _icon = Icons.mic;
-      }
-      _isFlipped = !_isFlipped;
+      _item = (_data..shuffle()).first;
     });
-  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -57,14 +65,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       body: Text(
-        _message,
+        _item.toString(),
         style: TextStyle(fontSize: 38.0),
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: _setMessage,
+        onPressed: _setData,
           tooltip: 'set message',
-        child: Icon(_icon),
+        child: Icon(Icons.star),
       ),
     );
   }
