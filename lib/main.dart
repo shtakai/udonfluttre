@@ -27,22 +27,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _message;
+  IconData _icon = Icons.star;
   bool _isFlipped = false;
 
   @override
   void initState() {
     super.initState();
     _message = 'HELLo';
-    _isFlipped = false;
   }
 
   void _setMessage() {
     setState(() {
       if (_isFlipped) {
         _message = '12345';
-
+        _icon = Icons.access_alarm;
       } else {
         _message = 'ABCDE';
+        _icon = Icons.mic;
       }
       _isFlipped = !_isFlipped;
     });
@@ -63,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _setMessage,
           tooltip: 'set message',
-        child: Icon(Icons.star),
+        child: Icon(_icon),
       ),
     );
   }
