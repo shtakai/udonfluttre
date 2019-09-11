@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(new MyApp());
 }
-class MyApp extends StatelessWidget {
 
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
+
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
@@ -33,12 +34,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         title: new Text('Take a Fucking Stand'),
       ),
-      body:
-      Center(
-        child:
-        Text(
+      body: Center(
+        child: Text(
           "Sick em all",
-          style: new TextStyle(fontSize: 32.0,
+          style: new TextStyle(
+              fontSize: 32.0,
               color: const Color(0xFF000000),
               fontWeight: FontWeight.w700,
               fontFamily: "Roboto"),
