@@ -34,17 +34,39 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         title: new Text('Take a Fucking Stand'),
       ),
-      body: Container(
-        child: Text(
-          "Sick em all",
-          style: new TextStyle(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            "Fuck",
+            style: TextStyle(
               fontSize: 32.0,
-              color: const Color(0xFF000000),
-              fontWeight: FontWeight.w700,
-              fontFamily: "Roboto"),
-        ),
-        padding: EdgeInsets.all(10.0),
-        alignment: Alignment.bottomCenter,
+              color: Color(0xFF000000),
+              fontWeight: FontWeight.w400,
+              fontFamily: "Roboto",
+            ),
+          ),
+          Text(
+            "Kill",
+            style: TextStyle(
+              fontSize: 32.0,
+              color: Color(0xFF000000),
+              fontWeight: FontWeight.w400,
+              fontFamily: "Roboto",
+            ),
+          ),
+          Text(
+            "Destroy",
+            style: TextStyle(
+              fontSize: 32.0,
+              color: Color(0xFF000000),
+              fontWeight: FontWeight.w400,
+              fontFamily: "Roboto",
+            ),
+          ),
+        ],
       ),
     );
   }
