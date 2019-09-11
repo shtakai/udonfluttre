@@ -31,16 +31,19 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('App Name'),
+        title: new Text('Take a Fucking Stand'),
       ),
       body:
+      Center(
+        child:
         Text(
-          "Suck em all",
+          "Sick em all",
           style: new TextStyle(fontSize: 32.0,
               color: const Color(0xFF000000),
               fontWeight: FontWeight.w700,
               fontFamily: "Roboto"),
         ),
+      ),
     );
   }
 
