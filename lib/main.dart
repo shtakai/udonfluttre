@@ -38,7 +38,7 @@ class Data {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _message;
-  bool _checked = false;
+  String _selected = 'A';
 
   @override
   void initState() {
@@ -73,12 +73,33 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Switch(
-                value: _checked,
-                onChanged: checkChanged,
+              Radio<String>(
+                value: 'A',
+                groupValue: _selected,
+                onChanged: (String value) => checkChanged(value),
               ),
               Text(
-                'check',
+                'radio A',
+                style: TextStyle(
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Roboto',
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Radio<String>(
+                value: 'XXX',
+                groupValue: _selected,
+                onChanged: (String value) => checkChanged(value),
+              ),
+              Text(
+                'radio XXX',
                 style: TextStyle(
                   fontSize: 28.0,
                   fontWeight: FontWeight.w400,
@@ -92,10 +113,10 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void checkChanged(bool value) {
+  void checkChanged(String value) {
     setState(() {
-      _checked = value;
-      _message = value ? 'checked' : 'not checked';
+      _selected = value;
+      _message = 'select $_selected';
     });
   }
 }
