@@ -86,17 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void buttonPressed() {
     showDialog(
-        context: context,
-        builder: (BuildContext context) => Container(
-              color: Colors.white70,
-              child: Text(
-                'Fucked up',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 28.0,
-                  decorationStyle: TextDecorationStyle.solid,
-                ),
-              ),
-            ));
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text('Fuck em sucked all'),
+        content: Text('WTF moron!'),
+      ),
+    );
   }
 }
