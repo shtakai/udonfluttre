@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _stackData = <Widget>[
+  var _gridData = <Widget>[
     Container(
       color: Colors.red,
       width: 200.0,
@@ -68,27 +68,63 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     ),
+    Container(
+      color: Colors.pink,
+      width: 200.0,
+      height: 200.0,
+      child: Text(
+        "Touch me I'm Sick",
+        style: TextStyle(
+          fontSize: 32.0,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto",
+        ),
+      ),
+    ),
+    Container(
+      color: Colors.pinkAccent,
+      width: 200.0,
+      height: 200.0,
+      child: Text(
+        "imode",
+        style: TextStyle(
+          fontSize: 32.0,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto",
+        ),
+      ),
+    ),
+    Container(
+      color: Colors.deepOrangeAccent,
+      width: 200.0,
+      height: 200.0,
+      child: Text(
+        "iphone",
+        style: TextStyle(
+          fontSize: 32.0,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto",
+        ),
+      ),
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Take a Fucking Stand'),
-      ),
-      body: Stack(
-        children: _stackData,
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.android),
-        onPressed: fabPressesed,
-      ),
-    );
+        appBar: new AppBar(
+          title: new Text('Take a Fucking Stand'),
+        ),
+        body: GridView.count(
+          crossAxisCount: 3,
+          mainAxisSpacing: 10.0,
+          crossAxisSpacing: 10.0,
+          padding: EdgeInsets.all(10.0),
+          children: _gridData,
+        ));
   }
 
   void fabPressesed() {
-    setState(() {
-      _stackData.insert(0, _stackData.removeLast());
-    });
+    setState(() {});
   }
 }
