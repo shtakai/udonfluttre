@@ -53,28 +53,40 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Fuck ?Name'),
       ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Text(
-              _message,
-              style: TextStyle(
-                fontSize: 32.0,
-                fontWeight: FontWeight.w400,
-                fontFamily: 'Roboto',
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                _message,
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Roboto',
+                ),
               ),
             ),
-          ),
-          FloatingActionButton(
-            child: Icon(Icons.android),
-            onPressed: buttonPressed,
-          ),
-        ],
-      )),
+            RawMaterialButton(
+              fillColor: Colors.white,
+              elevation: 30.0,
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Fuck me!',
+                style: TextStyle(
+                  fontSize: 32.0,
+                  color: Colors.red,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Roboto',
+                ),
+              ),
+              onPressed: buttonPressed,
+            ),
+          ],
+        ),
+      ),
     );
   }
 
