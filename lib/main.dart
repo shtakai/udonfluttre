@@ -88,17 +88,20 @@ class _MyHomePageState extends State<MyHomePage> {
   void buttonPressed() {
     showDialog(
         context: context,
-        builder: (BuildContext context) => AlertDialog(
+        builder: (BuildContext context) => SimpleDialog(
               title: Text('Fuck em sucked all'),
-              content: Text('WTF moron!'),
-              actions: <Widget>[
-                FlatButton(
-                  child: const Text('Cancel'),
-                  onPressed: () => Navigator.pop<String>(context, 'Cancel'),
+              children: <Widget>[
+                SimpleDialogOption(
+                  onPressed: () => Navigator.pop<String>(context, 'Fuck'),
+                  child: const Text('Fuck'),
                 ),
-                FlatButton(
-                  child: const Text('OK'),
-                  onPressed: () => Navigator.pop<String>(context, 'OK'),
+                SimpleDialogOption(
+                  onPressed: () => Navigator.pop<String>(context, 'Kill'),
+                  child: const Text('Kill'),
+                ),
+                SimpleDialogOption(
+                  onPressed: () => Navigator.pop<String>(context, 'Destroy'),
+                  child: const Text('Destroy'),
                 ),
               ],
             )).then<void>((value) => resultAlert(value));
@@ -107,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void resultAlert(String value) {
     setState(() {
       if (value == null) {
-        return;
+        value = 'Moron!';
       }
       _message = 'selected: $value';
     });
