@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          FlatButton(
+          RaisedButton(
             key: null,
             onPressed: buttonPressed,
             color: Colors.black12,
