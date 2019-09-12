@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-        title: 'fuck kill destroy',
+        title: 'fuck kill destroy app',
         home: new MyHomePage(
           title: this.title,
         ));
@@ -25,15 +25,47 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _message = '';
+
+  @override
+  void initState() {
+    _message = 'ok';
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Text(
-        widget.title,
-        style: TextStyle(fontSize: 38.0),
+      body: Column(
+        children: <Widget>[
+          Text(
+            _message,
+            style: TextStyle(
+              fontSize: 32.0,
+            ),
+          ),
+          ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.all(20.0),
+            children: <Widget>[
+              Text(
+                'Kill em all',
+                style: TextStyle(fontSize: 24.0),
+              ),
+              Text(
+                'Fuck em all',
+                style: TextStyle(fontSize: 24.0),
+              ),
+              Text(
+                'Suck em all',
+                style: TextStyle(fontSize: 24.0),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
