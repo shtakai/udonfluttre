@@ -38,7 +38,7 @@ class Data {
 
 class _MyHomePageState extends State<MyHomePage> {
   var _message;
-  static var _janken = <String>['X', 'Y', 'Z'];
+  final controller = TextEditingController();
 
   @override
   void initState() {
@@ -69,9 +69,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            RawMaterialButton(
-              fillColor: Colors.white,
-              elevation: 30.0,
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: TextField(
+                controller: controller,
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Roboto',
+                ),
+              ),
+            ),
+            FlatButton(
+              color: Colors.white,
               padding: EdgeInsets.all(10.0),
               child: Text(
                 'Fuck me!',
@@ -92,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void buttonPressed() {
     setState(() {
-      _message = (_janken..shuffle()).first;
+      _message = 'You said: fuck!' + controller.text;
     });
   }
 }
