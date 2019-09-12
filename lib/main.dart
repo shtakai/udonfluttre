@@ -38,7 +38,7 @@ class Data {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _message;
-  String _selected = 'Fuck';
+  double _value = 0.0;
 
   @override
   void initState() {
@@ -68,35 +68,22 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: EdgeInsets.all(20.0),
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: PopupMenuButton(
-              onSelected: (String value) => popupSelected(value),
-              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                const PopupMenuItem(
-                  child: const Text('Fuck'),
-                  value: 'Fuck',
-                ),
-                const PopupMenuItem(
-                  child: const Text('Kill'),
-                  value: 'Kill',
-                ),
-                const PopupMenuItem(
-                  child: const Text('Destroy'),
-                  value: 'Destroy',
-                ),
-              ],
-            ),
-          )
+          Slider(
+            onChanged: sliderChanged,
+            min: 0.0,
+            max: 100.0,
+            divisions: 20,
+            value: _value,
+          ),
         ],
       ),
     );
   }
 
-  void popupSelected(String value) {
+  void sliderChanged(double value) {
     setState(() {
-      _selected = value;
-      _message = 'select $_selected';
+      _value = value.floorToDouble();
+      _message = 'set value $_value';
     });
   }
 }
