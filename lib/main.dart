@@ -70,29 +70,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10),
               child: TextField(
+                onChanged: textChanged,
                 controller: controller,
                 style: TextStyle(
-                  fontSize: 32.0,
+                  fontSize: 28.0,
+                  color: Colors.greenAccent,
                   fontWeight: FontWeight.w400,
                   fontFamily: 'Roboto',
                 ),
               ),
-            ),
-            FlatButton(
-              color: Colors.white,
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                'Fuck me!',
-                style: TextStyle(
-                  fontSize: 32.0,
-                  color: Colors.red,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Roboto',
-                ),
-              ),
-              onPressed: buttonPressed,
             ),
           ],
         ),
@@ -100,9 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void buttonPressed() {
+  void textChanged(String val) {
     setState(() {
-      _message = 'You said: fuck!' + controller.text;
+      _message = 'You said: fuck!' + val.toUpperCase();
     });
   }
 }
