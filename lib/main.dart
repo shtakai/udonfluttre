@@ -28,99 +28,51 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _gridData = <Widget>[
-    Container(
-      color: Colors.red,
-      width: 200.0,
-      height: 200.0,
-      child: Text(
-        "Fuck",
-        style: TextStyle(
-          fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto",
-        ),
-      ),
-    ),
-    Container(
-      color: Colors.green,
-      width: 200.0,
-      height: 200.0,
-      child: Text(
-        "Kill",
-        style: TextStyle(
-          fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto",
-        ),
-      ),
-    ),
-    Container(
-      color: Colors.blue,
-      width: 200.0,
-      height: 200.0,
-      child: Text(
-        "Destroy",
-        style: TextStyle(
-          fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto",
-        ),
-      ),
-    ),
-    Container(
-      color: Colors.pink,
-      width: 200.0,
-      height: 200.0,
-      child: Text(
-        "Touch me I'm Sick",
-        style: TextStyle(
-          fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto",
-        ),
-      ),
-    ),
-    Container(
-      color: Colors.pinkAccent,
-      width: 200.0,
-      height: 200.0,
-      child: Text(
-        "imode",
-        style: TextStyle(
-          fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto",
-        ),
-      ),
-    ),
-    Container(
-      color: Colors.deepOrangeAccent,
-      width: 200.0,
-      height: 200.0,
-      child: Text(
-        "iphone",
-        style: TextStyle(
-          fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto",
-        ),
-      ),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
           title: new Text('Take a Fucking Stand'),
         ),
-        body: GridView.extent(
-          maxCrossAxisExtent: 150.0,
-          mainAxisSpacing: 10.0,
-          crossAxisSpacing: 10.0,
-          padding: EdgeInsets.all(10.0),
-          children: _gridData,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Fuck',
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Roboto",
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Kill',
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Roboto",
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                'Destroy',
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Roboto",
+                ),
+              ),
+            ),
+          ],
         ));
   }
 
