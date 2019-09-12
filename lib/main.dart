@@ -86,22 +86,31 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void buttonPressed() {
-    showDialog(
+    showModalBottomSheet(
         context: context,
-        builder: (BuildContext context) => SimpleDialog(
-              title: Text('Fuck em sucked all'),
+        builder: (BuildContext context) => Column(
               children: <Widget>[
-                SimpleDialogOption(
-                  onPressed: () => Navigator.pop<String>(context, 'Fuck'),
-                  child: const Text('Fuck'),
+                Text(
+                  'This is moron.',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.black,
+                  ),
                 ),
-                SimpleDialogOption(
-                  onPressed: () => Navigator.pop<String>(context, 'Kill'),
-                  child: const Text('Kill'),
+                Padding(
+                  padding: EdgeInsets.all(10.0),
                 ),
-                SimpleDialogOption(
-                  onPressed: () => Navigator.pop<String>(context, 'Destroy'),
-                  child: const Text('Destroy'),
+                FlatButton(
+                  onPressed: () => Navigator.pop<String>(context, 'Fuck Off'),
+                  child: Text(
+                    'Fuck Off',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.cyan,
+                    ),
+                  ),
                 ),
               ],
             )).then<void>((value) => resultAlert(value));
