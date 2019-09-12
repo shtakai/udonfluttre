@@ -43,12 +43,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text(
                   'Fuck',
                   style: TextStyle(
-                    fontSize: 32.0,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Roboto'
-                  ),
+                      fontSize: 32.0,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Roboto'),
                 ),
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(25.0),
             ),
             Expanded(
               child: Container(
@@ -56,26 +58,26 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text(
                   'Kill',
                   style: TextStyle(
-                    fontSize: 32.0,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Roboto'
-                  ),
+                      fontSize: 32.0,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Roboto'),
                 ),
               ),
             ),
             Expanded(
+                child: Padding(
+              padding: EdgeInsets.all(25.0),
               child: Container(
                 color: Color.fromARGB(255, 255, 0, 0),
                 child: Text(
                   'Destroy',
                   style: TextStyle(
-                    fontSize: 32.0,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Roboto'
-                  ),
+                      fontSize: 32.0,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Roboto'),
                 ),
               ),
-            ),
+            )),
           ],
         ));
   }
