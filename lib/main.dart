@@ -35,40 +35,44 @@ class _MyHomePageState extends State<MyHomePage> {
           title: new Text('Take a Fucking Stand'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Fuck',
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: "Roboto",
+            Expanded(
+              child: Container(
+                color: Color.fromARGB(255, 255, 255, 0),
+                child: Text(
+                  'Fuck',
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Roboto'
+                  ),
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                'Kill',
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: "Roboto",
+            Expanded(
+              child: Container(
+                color: Color.fromARGB(255, 255, 125, 0),
+                child: Text(
+                  'Kill',
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Roboto'
+                  ),
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                'Destroy',
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: "Roboto",
+            Expanded(
+              child: Container(
+                color: Color.fromARGB(255, 255, 0, 0),
+                child: Text(
+                  'Destroy',
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Roboto'
+                  ),
                 ),
               ),
             ),
