@@ -37,8 +37,8 @@ class Data {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _message;
-  final controller = TextEditingController();
+  String _message;
+  bool _checked = false;
 
   @override
   void initState() {
@@ -52,45 +52,50 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Fuck ?Name'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Text(
-                _message,
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Roboto',
-                ),
-              ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            _message,
+            style: TextStyle(
+              fontSize: 32.0,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Roboto',
             ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: TextField(
-                onChanged: textChanged,
-                controller: controller,
+          ),
+          Padding(
+            padding: EdgeInsets.all(20.0),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Checkbox(
+                value: _checked,
+                onChanged: checkChanged,
+              ),
+              Text(
+                'check',
                 style: TextStyle(
                   fontSize: 28.0,
-                  color: Colors.greenAccent,
                   fontWeight: FontWeight.w400,
                   fontFamily: 'Roboto',
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
 
-  void textChanged(String val) {
+  void checkChanged(bool value) {
     setState(() {
-      _message = 'You said: fuck!' + val.toUpperCase();
+      _checked = value;
+      _message = value ? 'checked' : 'not checked';
     });
   }
 }
