@@ -37,13 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(
-              width: 200.0,
-              height: 100.0,
+            FractionallySizedBox(
+              widthFactor: 0.20,
               child: Container(
                 color: Colors.yellowAccent,
                 child: Text(
-                  'Fuck',
+                  'Fuck Kill',
                   style: TextStyle(
                       fontSize: 32.0,
                       fontWeight: FontWeight.w400,
@@ -51,27 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(
-              width: 100.0,
-              height: 200.0,
+            FractionalTranslation(
+              translation: Offset(1.0, 1.0),
               child: Container(
-                color: Colors.pink,
+                color: Colors.greenAccent,
                 child: Text(
-                  'Kill',
-                  style: TextStyle(
-                      fontSize: 32.0,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: 'Roboto'),
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 300.0,
-              height: 50.0,
-              child: Container(
-                color: Colors.black12,
-                child: Text(
-                  'Destroy!',
+                  'Kill Fuck',
                   style: TextStyle(
                       fontSize: 32.0,
                       fontWeight: FontWeight.w400,
