@@ -38,7 +38,7 @@ class Data {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _message;
-  String _selected = 'A';
+  String _selected = 'Fuck';
 
   @override
   void initState() {
@@ -68,52 +68,32 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: EdgeInsets.all(20.0),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Radio<String>(
-                value: 'A',
-                groupValue: _selected,
-                onChanged: (String value) => checkChanged(value),
-              ),
-              Text(
-                'radio A',
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Roboto',
+          Align(
+            alignment: Alignment.centerRight,
+            child: PopupMenuButton(
+              onSelected: (String value) => popupSelected(value),
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                const PopupMenuItem(
+                  child: const Text('Fuck'),
+                  value: 'Fuck',
                 ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Radio<String>(
-                value: 'XXX',
-                groupValue: _selected,
-                onChanged: (String value) => checkChanged(value),
-              ),
-              Text(
-                'radio XXX',
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Roboto',
+                const PopupMenuItem(
+                  child: const Text('Kill'),
+                  value: 'Kill',
                 ),
-              ),
-            ],
-          ),
+                const PopupMenuItem(
+                  child: const Text('Destroy'),
+                  value: 'Destroy',
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
   }
 
-  void checkChanged(String value) {
+  void popupSelected(String value) {
     setState(() {
       _selected = value;
       _message = 'select $_selected';
