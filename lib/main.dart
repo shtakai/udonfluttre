@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Checkbox(
+              Switch(
                 value: _checked,
                 onChanged: checkChanged,
               ),
