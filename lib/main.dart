@@ -38,7 +38,6 @@ class Data {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _message;
-  double _value = 0.0;
 
   @override
   void initState() {
@@ -68,22 +67,36 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: EdgeInsets.all(20.0),
           ),
-          Slider(
-            onChanged: sliderChanged,
-            min: 0.0,
-            max: 100.0,
-            divisions: 20,
-            value: _value,
+          RaisedButton(
+            onPressed: buttonPressed,
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              'Fuck me',
+              style: TextStyle(
+                  fontSize: 28.0,
+                  color: Colors.red,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Roboto'),
+            ),
           ),
         ],
       ),
     );
   }
 
-  void sliderChanged(double value) {
-    setState(() {
-      _value = value.floorToDouble();
-      _message = 'set value $_value';
-    });
+  void buttonPressed() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) => Container(
+              color: Colors.white70,
+              child: Text(
+                'Fucked up',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28.0,
+                  decorationStyle: TextDecorationStyle.solid,
+                ),
+              ),
+            ));
   }
 }
