@@ -25,79 +25,70 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _message = '';
-  int _index;
-
-  @override
-  void initState() {
-    _message = 'ok';
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[
-          Text(
-            _message,
-            style: TextStyle(
-              fontSize: 32.0,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Container(
+              color: Colors.blue,
+              height: 150.0,
+              child: const Center(
+                child: Text(
+                  'One',
+                  style: const TextStyle(fontSize: 32.0),
+                ),
+              ),
             ),
-          ),
-          ListView(
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(20.0),
-            children: <Widget>[
-              ListTile(
-                leading: const Icon(Icons.android),
-                title: const Text('fuck all'),
-                selected: _index == 1,
-                onTap: () {
-                  _index = 1;
-                  tapTile();
-                },
+            Container(
+              color: Colors.yellowAccent,
+              height: 150.0,
+              child: const Center(
+                child: Text(
+                  'Two',
+                  style: const TextStyle(fontSize: 32.0),
+                ),
               ),
-              ListTile(
-                leading: const Icon(Icons.favorite),
-                title: const Text('suck all'),
-                selected: _index == 2,
-                onTap: () {
-                  _index = 2;
-                  tapTile();
-                },
+            ),
+            Container(
+              color: Colors.blue,
+              height: 150.0,
+              child: const Center(
+                child: Text(
+                  'Three',
+                  style: const TextStyle(fontSize: 32.0),
+                ),
               ),
-              ListTile(
-                leading: const Icon(Icons.favorite_border),
-                title: const Text('destroy all'),
-                selected: _index == 3,
-                onTap: () {
-                  _index = 3;
-                  tapTile();
-                },
+            ),
+            Container(
+              color: Colors.yellowAccent,
+              height: 150.0,
+              child: const Center(
+                child: Text(
+                  'Four',
+                  style: const TextStyle(fontSize: 32.0),
+                ),
               ),
-              ListTile(
-                leading: const Icon(Icons.airplanemode_inactive),
-                title: const Text('メーデー'),
-                selected: _index == 4,
-                onTap: () {
-                  _index = 4;
-                  tapTile();
-                },
+            ),
+            Container(
+              color: Colors.blue,
+              height: 150.0,
+              child: const Center(
+                child: Text(
+                  'Fiv',
+                  style: const TextStyle(fontSize: 32.0),
+                ),
               ),
-            ],
-          )
-        ],
+            ),
+          ],
+        ),
       ),
     );
-  }
-
-  void tapTile() {
-    setState(() {
-      _message = 'You fucked: No, $_index.';
-    });
   }
 }
