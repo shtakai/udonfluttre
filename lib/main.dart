@@ -115,8 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: new AppBar(
           title: new Text('Take a Fucking Stand'),
         ),
-        body: GridView.count(
-          crossAxisCount: 3,
+        body: GridView.extent(
+          maxCrossAxisExtent: 150.0,
           mainAxisSpacing: 10.0,
           crossAxisSpacing: 10.0,
           padding: EdgeInsets.all(10.0),
