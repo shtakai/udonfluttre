@@ -54,11 +54,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Text(
             _message,
             style: TextStyle(
+              color: const Color(0XFF000000),
               fontSize: 32.0,
               fontWeight: FontWeight.w400,
               fontFamily: 'Roboto',
@@ -86,11 +87,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void buttonPressed() {
     showDialog(
-      context: context,
-      builder: (BuildContext context) => AlertDialog(
-        title: Text('Fuck em sucked all'),
-        content: Text('WTF moron!'),
-      ),
-    );
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+              title: Text('Fuck em sucked all'),
+              content: Text('WTF moron!'),
+              actions: <Widget>[
+                FlatButton(
+                  child: const Text('Cancel'),
+                  onPressed: () => Navigator.pop<String>(context, 'Cancel'),
+                ),
+                FlatButton(
+                  child: const Text('OK'),
+                  onPressed: () => Navigator.pop<String>(context, 'OK'),
+                ),
+              ],
+            )).then<void>((value) => resultAlert(value));
+  }
+
+  void resultAlert(String value) {
+    setState(() {
+      if (value == null) {
+        return;
+      }
+      _message = 'selected: $value';
+    });
   }
 }
