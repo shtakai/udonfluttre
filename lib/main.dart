@@ -26,6 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _message = '';
+  int _index;
 
   @override
   void initState() {
@@ -51,22 +52,52 @@ class _MyHomePageState extends State<MyHomePage> {
             shrinkWrap: true,
             padding: const EdgeInsets.all(20.0),
             children: <Widget>[
-              Text(
-                'Kill em all',
-                style: TextStyle(fontSize: 24.0),
+              ListTile(
+                leading: const Icon(Icons.android),
+                title: const Text('fuck all'),
+                selected: _index == 1,
+                onTap: () {
+                  _index = 1;
+                  tapTile();
+                },
               ),
-              Text(
-                'Fuck em all',
-                style: TextStyle(fontSize: 24.0),
+              ListTile(
+                leading: const Icon(Icons.favorite),
+                title: const Text('suck all'),
+                selected: _index == 2,
+                onTap: () {
+                  _index = 2;
+                  tapTile();
+                },
               ),
-              Text(
-                'Suck em all',
-                style: TextStyle(fontSize: 24.0),
+              ListTile(
+                leading: const Icon(Icons.favorite_border),
+                title: const Text('destroy all'),
+                selected: _index == 3,
+                onTap: () {
+                  _index = 3;
+                  tapTile();
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.airplanemode_inactive),
+                title: const Text('メーデー'),
+                selected: _index == 4,
+                onTap: () {
+                  _index = 4;
+                  tapTile();
+                },
               ),
             ],
           )
         ],
       ),
     );
+  }
+
+  void tapTile() {
+    setState(() {
+      _message = 'You fucked: No, $_index.';
+    });
   }
 }
