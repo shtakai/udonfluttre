@@ -35,11 +35,13 @@ class _MyHomePageState extends State<MyHomePage> {
           title: new Text('Take a Fucking Stand'),
         ),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Expanded(
+            SizedBox(
+              width: 200.0,
+              height: 100.0,
               child: Container(
-                color: Color.fromARGB(255, 255, 255, 0),
+                color: Colors.yellowAccent,
                 child: Text(
                   'Fuck',
                   style: TextStyle(
@@ -49,12 +51,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(25.0),
-            ),
-            Expanded(
+            SizedBox(
+              width: 100.0,
+              height: 200.0,
               child: Container(
-                color: Color.fromARGB(255, 255, 125, 0),
+                color: Colors.pink,
                 child: Text(
                   'Kill',
                   style: TextStyle(
@@ -64,20 +65,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Expanded(
-                child: Padding(
-              padding: EdgeInsets.all(25.0),
+            SizedBox(
+              width: 300.0,
+              height: 50.0,
               child: Container(
-                color: Color.fromARGB(255, 255, 0, 0),
+                color: Colors.black12,
                 child: Text(
-                  'Destroy',
+                  'Destroy!',
                   style: TextStyle(
                       fontSize: 32.0,
                       fontWeight: FontWeight.w400,
                       fontFamily: 'Roboto'),
                 ),
               ),
-            )),
+            ),
           ],
         ));
   }
