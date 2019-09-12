@@ -3,21 +3,20 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-    final title = 'Fxxkter title';
+  final title = 'Fxxkter title';
 
-    @override
-    Widget build(BuildContext context) {
-      return new MaterialApp(
-      title: 'fuck kill destroy',
-      home: new MyHomePage(
-        title: this.title,
-      )
-    );
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+        title: 'fuck kill destroy',
+        home: new MyHomePage(
+          title: this.title,
+        ));
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({this.title}): super();
+  MyHomePage({this.title}) : super();
 
   final String title;
 
@@ -29,7 +28,7 @@ class Data {
   int _price;
   String _name;
 
-  Data(this._name, this._price): super();
+  Data(this._name, this._price) : super();
 
   @override
   String toString() {
@@ -38,42 +37,62 @@ class Data {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static final _data = [
-    Data('Apple', 200),
-    Data('Orange', 150),
-    Data('Peach', 44)
-  ];
-  Data _item;
+  var _message;
+  static var _janken = <String>['X', 'Y', 'Z'];
 
   @override
   void initState() {
+    _message = 'ok';
     super.initState();
-    _item = _data[0];
   }
-
-  void _setData() {
-    setState(() {
-      _item = (_data..shuffle()).first;
-    });
-}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Fuck ?Name'),
       ),
-
-      body: Text(
-        _item.toString(),
-        style: TextStyle(fontSize: 38.0),
-      ),
-
-      floatingActionButton: FloatingActionButton(
-        onPressed: _setData,
-          tooltip: 'set message',
-        child: Icon(Icons.star),
-      ),
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Text(
+              _message,
+              style: TextStyle(
+                fontSize: 32.0,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Roboto',
+              ),
+            ),
+          ),
+          FlatButton(
+            key: null,
+            onPressed: buttonPressed,
+            color: Colors.black12,
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Fuck me',
+                style: TextStyle(
+                    fontSize: 32.0,
+                    color: Color(0xFF000000),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Roboto'),
+              ),
+            ),
+          )
+        ],
+      )),
     );
+  }
+
+  void buttonPressed() {
+    setState(() {
+      _message = (_janken..shuffle()).first;
+    });
   }
 }
