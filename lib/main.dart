@@ -34,36 +34,37 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: new AppBar(
           title: new Text('Take a Fucking Stand'),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            FractionallySizedBox(
-              widthFactor: 0.20,
-              child: Container(
-                color: Colors.yellowAccent,
-                child: Text(
-                  'Fuck Kill',
-                  style: TextStyle(
+        body: Center(
+          child: Card(
+              margin: EdgeInsets.all(50.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Suck",
+                    style: TextStyle(
                       fontSize: 32.0,
+                      color: Color(0xFF000000),
                       fontWeight: FontWeight.w400,
-                      fontFamily: 'Roboto'),
-                ),
-              ),
-            ),
-            FractionalTranslation(
-              translation: Offset(1.0, 1.0),
-              child: Container(
-                color: Colors.greenAccent,
-                child: Text(
-                  'Kill Fuck',
-                  style: TextStyle(
-                      fontSize: 32.0,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: 'Roboto'),
-                ),
-              ),
-            ),
-          ],
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  Text(
+                    "Em All " * 5,
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      color: Color(0xFF0000FF),
+                      fontWeight: FontWeight.w200,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
+                ],
+              )),
         ));
   }
 
