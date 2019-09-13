@@ -8,6 +8,12 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'fuck kill destroy',
       home: new FirstScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => FirstScreen(),
+        '/second': (context) => SecondScreen('Second'),
+        '/third': (context) => SecondScreen('Third'),
+      },
     );
   }
 }
@@ -20,36 +26,21 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-  final _controller = TextEditingController();
-  String _input = '';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('fucked home'),
       ),
-      body: Column(
-        children: <Widget>[
-          Text(
-            'Home Screen',
-            style: TextStyle(
-              fontSize: 32.0,
-              fontWeight: FontWeight.w400,
-              color: Colors.red,
-            ),
+      body: Center(
+        child: Text(
+          'Home Screen',
+          style: TextStyle(
+            fontSize: 32.0,
+            fontWeight: FontWeight.w400,
+            color: Colors.red,
           ),
-          Padding(
-            padding: EdgeInsets.all(10.0),
-          ),
-          TextField(
-            controller: _controller,
-            style: TextStyle(
-              fontSize: 32.0,
-            ),
-            onChanged: changeField,
-          ),
-        ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 1,
@@ -65,17 +56,15 @@ class _FirstScreenState extends State<FirstScreen> {
         ],
         onTap: (int value) {
           if (value == 1) {
-            Navigator.push(
+            Navigator.pushNamed(
               context,
-              MaterialPageRoute(builder: (context) => SecondScreen(_input)),
+              '/second',
             );
           }
         },
       ),
     );
   }
-
-  void changeField(String val) => _input = val;
 }
 
 class SecondScreen extends StatelessWidget {
@@ -91,7 +80,7 @@ class SecondScreen extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          'you typed: "$_value".',
+          '$_value screen.',
           style: TextStyle(
             fontSize: 32.0,
           ),
@@ -111,6 +100,9 @@ class SecondScreen extends StatelessWidget {
         ],
         onTap: (int value) {
           if (value == 0) Navigator.pop(context);
+          if (value == 1) {
+            Navigator.pushNamed(context, '/third',);
+          }
         },
       ),
     );
