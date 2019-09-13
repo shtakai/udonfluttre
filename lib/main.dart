@@ -49,7 +49,12 @@ class RssListPage extends StatelessWidget {
 
   List<Widget> items(BuildContext context) {
     List<Widget> items = [];
+    print('----- ${names.length.toString()} ----- ${links.length.toString()}');
     for (var i = 0; 0 < names.length; i++) {
+      if (i >= names.length) {
+        break;
+      }
+      print('===i: ${i.toString()}');
       items.add(
         ListTile(
           contentPadding: EdgeInsets.all(10.0),
@@ -92,6 +97,7 @@ class _MyRssPageState extends State<MyRssPage> {
   List<Widget> _items = <Widget>[];
 
   _MyRssPageState({@required this.title, @required this.url}) {
+    print('init');
     getItems();
   }
 
@@ -112,8 +118,11 @@ class _MyRssPageState extends State<MyRssPage> {
 
   void getItems() async {
     List<Widget> list = <Widget>[];
+    print('===getitems: ${url.toString()}');
 
     Response res = await get(url);
+    print('===res: ${res.toString()}');
+
     RssFeed feed = RssFeed.parse(res.body);
     for (RssItem item in feed.items) {
       list.add(
@@ -158,6 +167,7 @@ class ItemDetailsPage extends StatefulWidget {
   ItemDetailsPage(
       {@required this.item, @required this.title, @required this.url});
 
+
   @override
   _ItemDetails createState() => new _ItemDetails(item: item);
 }
@@ -188,11 +198,14 @@ class _ItemDetails extends State<ItemDetailsPage> {
     Response res = await get(item.link);
 
     dom.Document doc = dom.Document.html(res.body);
-    dom.Element hbody = doc.querySelector('.hbody');
-    dom.Element htotle = doc.querySelector('.newsTitle a');
-    dom.Element newslink = doc.querySelector('.newsLink');
+    dom.Element hbody = doc.querySelector('.tpcNews_summary');
+    dom.Element htitle = doc.querySelector('.tpcNews_title');
+    dom.Element newslink = doc.querySelector('.tpcNews_detailLink a');
 
-    print(newslink.attributes['href']);
+    print('url ${item.link}');
+    print('1getitem ${doc.querySelector('.hbody')}');
+    print('2getitem ${hbody.text} ${htitle.text}');
+    print('3getitem ${hbody.text} ${htitle.text} ${newslink.text}');
 
     setState(() {
       _widget = SingleChildScrollView(
@@ -202,7 +215,7 @@ class _ItemDetails extends State<ItemDetailsPage> {
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
-                  htotle.text,
+                  htitle.text,
                   style: TextStyle(
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
