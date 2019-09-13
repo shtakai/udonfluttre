@@ -7,7 +7,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'fuck kill destroy',
-      home: new FirstScreen(),
       initialRoute: '/',
       routes: {
         '/': (context) => FirstScreen(),
@@ -101,7 +100,10 @@ class SecondScreen extends StatelessWidget {
         onTap: (int value) {
           if (value == 0) Navigator.pop(context);
           if (value == 1) {
-            Navigator.pushNamed(context, '/third',);
+            Navigator.pushNamed(
+              context,
+              '/third',
+            );
           }
         },
       ),
