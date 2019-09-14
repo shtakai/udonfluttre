@@ -258,7 +258,7 @@ class MyPainter extends CustomPainter {
     }
 
     ui.Picture picture = recorder.endRecording();
-    return picture.toImage(
-        mediasize.width.toInt(), mediasize.height.toInt());
+
+    return picture.toImage(mediasize.width.toInt(), mediasize.height.toInt());
   }
 }
