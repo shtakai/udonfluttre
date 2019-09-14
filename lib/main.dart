@@ -158,7 +158,7 @@ class _MyImagePageState extends State<MyImagePage> {
   }
 
   void saveImage() {
-    _painter.saveImagge();
+    _painter.saveImage();
     showDialog(
         context: context,
         builder: (BuildContext context) => AlertDialog(
@@ -220,7 +220,7 @@ class MyPainter extends CustomPainter {
     return true;
   }
 
-  void saveImagge() async {
+  void saveImage() async {
     ui.Image img = drawToCanvas();
     final ByteData bytedata = await img.toByteData(
       format: ui.ImageByteFormat.png,
